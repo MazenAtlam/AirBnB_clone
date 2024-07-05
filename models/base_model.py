@@ -8,12 +8,25 @@ from datetime import datetime
 class BaseModel:
     """A class that defines all common attributes/methods for other classes"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initialize the instance attributes"""
 
-        self.created_at = datetime.now()
-        self.id = str(uuid.uuid4())
-        self.updated_at = datetime.now()
+        if kwargs:
+            for key, value in kwargs:
+                if key == '__class__':
+                    continue
+                if key == 'created_at' or key == 'updated_at':
+                    date, time = value.split('T')
+                    yy, mm, dd = date.split('-')
+                    hh, MM, ss_ms = time.split(':')
+                    ss, ms = ss_ms.split('.')
+                    value = datetime(year=yy, month=mm, day=dd,
+                                hour=hh, minute=MM, second=ss, microsecond=ms)
+                self.__setattr__(key, value)
+        else:
+            self.created_at = datetime.now()
+            self.id = str(uuid.uuid4())
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """Print the instance in a formated string
