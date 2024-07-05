@@ -12,14 +12,16 @@ class BaseModel:
         """Initialize the instance attributes"""
 
         if kwargs:
-            for key, value in kwargs:
+            for key, value in kwargs.items():
                 if key == '__class__':
                     continue
                 if key == 'created_at' or key == 'updated_at':
                     date, time = value.split('T')
-                    yy, mm, dd = date.split('-')
+                    yy, mm, dd = map(int, date.split('-'))
                     hh, MM, ss_ms = time.split(':')
-                    ss, ms = ss_ms.split('.')
+                    hh = int(hh)
+                    MM = int(MM)
+                    ss, ms = map(int, ss_ms.split('.'))
                     value = datetime(yy, mm, dd, hh, MM, ss, ms)
 
                 self.__setattr__(key, value)
