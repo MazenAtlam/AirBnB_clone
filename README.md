@@ -8,7 +8,7 @@ This Project is a command-line interpreter designed as the initial stage of a co
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Features](#features)
-4. [Authors](#authors)
+4. [Authors](https://github.com/MazenAtlam/AirBnB_clone/blob/main/AUTHORS)
 
 
 ## Installation
