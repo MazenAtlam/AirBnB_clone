@@ -20,8 +20,8 @@ class BaseModel:
                     yy, mm, dd = date.split('-')
                     hh, MM, ss_ms = time.split(':')
                     ss, ms = ss_ms.split('.')
-                    value = datetime(year=yy, month=mm, day=dd,
-                                hour=hh, minute=MM, second=ss, microsecond=ms)
+                    value = datetime(yy, mm, dd, hh, MM, ss, ms)
+
                 self.__setattr__(key, value)
         else:
             self.created_at = datetime.now()
