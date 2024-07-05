@@ -14,17 +14,13 @@ class BaseModel:
         self.created_at = datetime.now()
         self.id = str(uuid.uuid4())
         self.updated_at = datetime.now()
-        self.__dict__.update(
-            {'__class__': str(self.__class__).split('.')[1].strip("'>")})
-
 
     def __str__(self):
         """Print the instance in a formated string
         The format is [<class name>] (<self.id>) <self.__dict__>"""
 
-        obj_dict = self.to_dict().copy()
-        return '[{}] ({}) {}'.format(obj_dict.get('__class__'),
-                                     self.id, obj_dict.pop('__class__'))
+        return '[{}] ({}) {}'.format(self.__class__.__name__,
+                                     self.id, self.__dict__)
 
     def save(self):
         """Updates the instance attribute updated_at with the save datetime"""
@@ -34,4 +30,9 @@ class BaseModel:
     def to_dict(self):
         """Convert the instance attribute into dict format"""
 
-        return self.__dict__
+        obj_dict = self.__dict__.copy()
+        obj_dict.update({'__class__': self.__class__.__name__})
+        obj_dict['created_at'] = self.created_at.isoformat()
+        obj_dict['updated_at'] = self.updated_at.isoformat()
+
+        return obj_dict
