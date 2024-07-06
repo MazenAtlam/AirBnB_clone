@@ -44,7 +44,6 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, encoding='utf-8') as file:
                 all_objects = json.load(file)
-                print(all_objects)
                 for key, value in all_objects.items():
                     cls = eval(value['__class__'])
                     FileStorage.__objects[key] = cls(**value)
