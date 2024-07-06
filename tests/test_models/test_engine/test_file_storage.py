@@ -4,7 +4,6 @@
 import unittest
 from models import storage
 from models.base_model import BaseModel
-from models.city import City
 
 
 class TestBaseModel(unittest.TestCase):
