@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
-    """A test case of the class test BaseModel"""
+    """A test case of the class BaseModel"""
 
     mod1 = BaseModel()
 
