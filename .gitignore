@@ -1,7 +1,12 @@
 # VS Code
 .vscode/
+
+# Skip Output
 __pycache__/
+file.json
 
 # My own tests
 *main*.py
+
+# Pusher
 fastPush

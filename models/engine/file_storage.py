@@ -33,12 +33,20 @@ class FileStorage:
         """Deserializes the JSON file to __objects
         - If the __file_path does not exist, nothing will be done
         """
+        from ..base_model import BaseModel
+        from ..user import User
+        from ..place import Place
+        from ..state import State
+        from ..city import City
+        from ..amenity import Amenity
+        from ..review import Review
 
         try:
             with open(FileStorage.__file_path, encoding='utf-8') as file:
                 all_objects = json.load(file)
-                for key, value in all_objects:
-                    cls = globals().get(value['__class__'])
+                print(all_objects)
+                for key, value in all_objects.items():
+                    cls = eval(value['__class__'])
                     FileStorage.__objects[key] = cls(**value)
 
         except FileNotFoundError:
