@@ -24,7 +24,8 @@ class TestBaseModel(unittest.TestCase):
         """A test for the print instance format string"""
 
         self.assertRegex(TestBaseModel.mod1.__str__(),
-        "^\[\w+\]\s\(([a-f0-9]{4,12}\-{0,1}){5}\)\s\{(?:\s*\'{0,1}\w+\'{0,1}\:{0,1}\s{0,1}\S+\,{0,1})*\}$")
+                         "^\[\w+\]\s\(([a-f0-9]{4,12}\-{0,1}){5}\)\s\{(?:\s*\'{0,1}\w+\'{0,1}\
+                         \:{0,1}\s{0,1}\S+\,{0,1})*\}$")
 
     def test_to_dict(self):
         """A test for the method to_dict()"""
@@ -39,6 +40,7 @@ class TestBaseModel(unittest.TestCase):
         time_after_saving = TestBaseModel.mod1.updated_at
 
         self.assertNotEqual(time_before_saving, time_after_saving)
+
 
 if __name__ == '__main__':
     unittest.main()
