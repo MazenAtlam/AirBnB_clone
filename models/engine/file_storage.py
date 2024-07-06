@@ -33,6 +33,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects
         - If the __file_path does not exist, nothing will be done
         """
+
         from ..base_model import BaseModel
         from ..user import User
         from ..place import Place

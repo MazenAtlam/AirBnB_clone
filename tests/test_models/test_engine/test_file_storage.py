@@ -59,5 +59,9 @@ class TestBaseModel(unittest.TestCase):
         if os.path.isfile('file.json'):
             os.remove('file.json')
 
+        storage.reload()  # Does not raise any errors also file does not exist
         self.assertFalse(os.path.isfile('file.json'))
-        storage.reload()  # Not raises any errors also file does not exist
+
+
+if __name__ == '__main__':
+    unittest.main()
