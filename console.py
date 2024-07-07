@@ -102,6 +102,7 @@ class name and id
                 for key, val in saved_objects.items():
                     if val.id == given_id:
                         del saved_objects[key]
+                        BaseModel.save(val)
                         return
                 print("** no instance found **")
 
@@ -155,7 +156,7 @@ or updating existing one
             print("** no instance found **")
             return
         if len(args) == 2:
-            print("** attribute name missing")
+            print("** attribute name missing **")
             return
         if len(args) == 3:
             print("** value missing **")
