@@ -28,9 +28,10 @@ create <class_name>
 ```
 
 ***Example***
-```python
-
-
+```shell
+(hbnb) create BaseModel
+84a2b477-e2e5-479c-8b05-6513cd15fc12
+(hbnb)
 ```
 - **update**
 
@@ -42,9 +43,11 @@ update <class_name> <id> <new_attr_name> <attr_value>
 ```
 
 ***Example***
-```python
-
-
+```shell
+(hbnb) update BaseModel 84a2b477-e2e5-479c-8b05-6513cd15fc12 name "Mazen Atlam"
+(hbnb) show BaseModel 84a2b477-e2e5-479c-8b05-6513cd15fc12
+[BaseModel] (84a2b477-e2e5-479c-8b05-6513cd15fc12) {'created_at': datetime.datetime(2024, 7, 7, 12, 12, 31, 918139), 'id': '84a2b477-e2e5-479c-8b05-6513cd15fc12', 'updated_at': datetime.datetime(2024, 7, 7, 12, 13, 33, 926706), 'name': 'Mazen_Atlam'}
+(hbnb)
 ```
 - **destroy**
 
@@ -56,9 +59,11 @@ destroy <class_name> <id>
 ```
 
 ***Example***
-```python
-
-
+```shell
+(hbnb) destroy BaseModel 84a2b477-e2e5-479c-8b05-6513cd15fc12
+(hbnb) show BaseModel 84a2b477-e2e5-479c-8b05-6513cd15fc12
+** no instance found **
+(hbnb)
 ```
 - **show**
 
@@ -70,16 +75,17 @@ show <class_name> <id>
 ```
 
 ***Example***
-```python
-
-
+```shell
+(hbnb) show BaseModel a0ef0a07-ee74-4b6b-831c-141c44de6fb3
+[BaseModel] (a0ef0a07-ee74-4b6b-831c-141c44de6fb3) {'created_at': datetime.datetime(2024, 7, 7, 9, 17, 2, 11787), 'id': 'a0ef0a07-ee74-4b6b-831c-141c44de6fb3', 'updated_at': datetime.datetime(2024, 7, 7, 12, 4, 15, 496660), 'name': 'ahmed', 'email': 'AhmedSHehab@gmail.com'}
+(hbnb)
 ```
 - **all**
 
 Prints all String Representation of all instances based or not on class name
 
 ***Syntax***
-```python
+```shell
 all <class_name>
 # OR
 all # To Print all instances of all classes
@@ -87,6 +93,13 @@ all # To Print all instances of all classes
 
 ***Example***
 ```python
+(hbnb) all
+["[BaseModel] (a0ef0a07-ee74-4b6b-831c-141c44de6fb3) {'created_at': datetime.datetime(2024, 7, 7, 9, 17, 2, 11787), 'id': 'a0ef0a07-ee74-4b6b-831c-141c44de6fb3', 'updated_at': datetime.datetime(2024, 7, 7, 12, 4, 15, 496660), 'name': 'ahmed', 'email': 'AhmedSHehab@gmail.com'}", "[State] (4562340f-1870-4de3-84a8-f8669dc54dc6) {'created_at': datetime.datetime(2024, 7, 7, 9, 17, 18, 118064), 'id': '4562340f-1870-4de3-84a8-f8669dc54dc6', 'updated_at': datetime.datetime(2024, 7, 7, 9, 17, 18, 118223)}", "[State] (8568bba3-528f-47c0-8a16-72f85ca34883) {'created_at': datetime.datetime(2024, 7, 7, 9, 41, 59, 210279), 'id': '8568bba3-528f-47c0-8a16-72f85ca34883', 'updated_at': datetime.datetime(2024, 7, 7, 9, 41, 59, 210765)}"]
+(hbnb)
 
 
+# To Select models of specific Class
+(hbnb) all BaseModel
+["[BaseModel] (a0ef0a07-ee74-4b6b-831c-141c44de6fb3) {'created_at': datetime.datetime(2024, 7, 7, 9, 17, 2, 11787), 'id': 'a0ef0a07-ee74-4b6b-831c-141c44de6fb3', 'updated_at': datetime.datetime(2024, 7, 7, 12, 4, 15, 496660), 'name': 'ahmed', 'email': 'AhmedSHehab@gmail.com'}"]
+(hbnb)
 ```
