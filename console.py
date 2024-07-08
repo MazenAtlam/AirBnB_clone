@@ -78,7 +78,7 @@ on class name and id
             else:
                 given_id = args[1]
                 for obj in FileStorage.all(None).values():
-                    if obj.id == given_id:
+                    if obj.id == given_id and obj.__class__.__name__ == cls_name:
                         print(obj)
                         return
                 print("** no instance found **")
@@ -100,7 +100,7 @@ class name and id
                 given_id = args[1]
                 saved_objects = FileStorage.all(None)
                 for key, val in saved_objects.items():
-                    if val.id == given_id:
+                    if val.id == given_id and val.__class__.__name__ == cls_name:
                         del saved_objects[key]
                         BaseModel.save(val)
                         return
@@ -149,7 +149,7 @@ or updating existing one
         given_id = args[1]
         obj_to_update = None
         for obj in FileStorage.all(None).values():
-            if obj.id == given_id:
+            if obj.id == given_id and obj.__class__.__name__ == cls_name:
                 obj_to_update = obj
                 break
         if obj_to_update is None:
